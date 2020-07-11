@@ -42,6 +42,14 @@ connect.then(() => {
     })
     .then(campsite => {
       console.log(campsite) //Will see a console log of the original document, then a console log of the document with the updated description
+
+      campsite.comments.push({
+        rating: 5,
+        text: 'What a magnificent view!',
+        author: 'Tinus Lorvaldes'
+      });
+
+      return campsite.save();
     })
     .then(campsites => {
       console.log(campsites); //Logging array of objects to the console
