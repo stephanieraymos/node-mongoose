@@ -10,6 +10,7 @@ const url = 'mongodb://localhost:27017/nucampsite';
 //Connect method returns a promise; so I chained a .then method to it
 const connect = mongoose.connect(url, {
   useCreateIndex: true,
+  useFindAndModify: false,
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
