@@ -33,7 +33,8 @@ const campsiteSchema = new Schema({
   description: {
     type: String,
     required: true
-  }
+  },
+  comments: [commentSchema] //Addimg commentSchema as a sub document to the campsiteSchema
 }, {
   timestamps: true //created at and updated at
 });
