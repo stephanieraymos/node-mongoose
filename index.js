@@ -22,7 +22,7 @@ connect.then(() => {
     //Campsite is the model we are instantiating
     const newCampsite = new Campsite({
         name: 'React Lake Campground',
-        description: 'test'
+        description: 'test' //If this description is deleted; it would return an error since we set up descriptions as 'required'
     });
 
     const testCampsite = new Campsite({
