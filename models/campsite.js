@@ -2,19 +2,36 @@ const mongoose = require('mongoose');
 //This is making a shorthand to the mongoose.Schema function so we can refer to it as Schema:
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+  rating: {
+    type: Number,
+    min: 1, //min value
+    max: 5, //max value
+    required: true
+  },
+  text: {
+    type: String,
+    required: true
+  },
+  author: {
+    type: String,
+    required: true
+  }
+});
+
 //Creating Schema:
 const campsiteSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    description: {
-        type: String,
-        required: true
-    }
+  name: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  description: {
+    type: String,
+    required: true
+  }
 }, {
-    timestamps: true //created at and updated at
+  timestamps: true //created at and updated at
 });
 
 //Creating Model: 
