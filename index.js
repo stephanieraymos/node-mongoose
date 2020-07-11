@@ -51,8 +51,8 @@ connect.then(() => {
 
       return campsite.save();
     })
-    .then(campsites => {
-      console.log(campsites); //Logging array of objects to the console
+    .then(campsite => {
+      console.log(campsite); //Logging array of objects to the console
       return Campsite.deleteMany();
     })
     .then(() => {
