@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
+  //FIRST ARGUMENT:
   rating: {
     type: Number,
     min: 1, //min value
@@ -17,6 +18,9 @@ const commentSchema = new Schema({
     type: String,
     required: true
   }
+}, {
+    //SECOND ARGUMENT:
+    timestamps: true
 });
 
 //Creating Schema:
