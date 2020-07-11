@@ -23,12 +23,36 @@ connect.then(() => {
   //Campsite is the model we are instantiating
   //The create method returns a promise that resolves to the new document
   Campsite.create({
-    name: 'React Lake Campground',
+    name: 'Test Campground',
     description: 'test' //If this description is deleted; it would return an error since we set up descriptions as 'required'
+  })
+  .then(campsite => {
+    console.log(campsite);
+
+    return Campsite.findByIdAndUpdate(campsite._id, {
+        $set: { description: 'Updated Test Document' }
+    }, {
+        new: true
+    });
+})
+.then(campsite => {
+  console.log(campsite);
+
+  campsite.comments.push({
+      rating: 5,
+      text: 'Test rating!',
+      author: 'Test author'
   });
 
+  return campsite.save();
+})
+.then(campsite => {
+  console.log(campsite);
+  return Campsite.deleteMany();
+});
+
   Campsite.create({
-    name: 'Test Campground',
+    name: 'React Lake Campground',
     description: 'test'
   })
     .then(campsite => {
