@@ -32,7 +32,13 @@ connect.then(() => {
   })
     .then(campsite => {
       console.log(campsite);
-      return Campsite.find(); //Finds all documents that are based on the Campsite Model. If successful: Returns all found docs in an array of objects
+      //Updating campsite document
+      return Campsite.findByIdAndUpdate(campsite._id, {
+        $set: { description: 'Updated Test Document'} //$set is the update operator
+      }, {
+        new: true //Causes method to return the updated document, otherwise the default will return the original 
+      }); //Finds all documents that are based on the Campsite Model with a specified ID and updates the contents of the $set operators object. If successful: Returns all found docs in an array of objects
+       //Adding a comment sub document to it
     })
     .then(campsites => {
       console.log(campsites); //Logging array of objects to the console
