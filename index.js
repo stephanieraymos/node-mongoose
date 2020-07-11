@@ -40,6 +40,9 @@ connect.then(() => {
       }); //Finds all documents that are based on the Campsite Model with a specified ID and updates the contents of the $set operators object. If successful: Returns all found docs in an array of objects
        //Adding a comment sub document to it
     })
+    .then(campsite => {
+      console.log(campsite) //Will see a console log of the original document, then a console log of the document with the updated description
+    })
     .then(campsites => {
       console.log(campsites); //Logging array of objects to the console
       return Campsite.deleteMany();
